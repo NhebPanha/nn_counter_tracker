@@ -3,19 +3,19 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 import '../models/counter_data.dart';
-import '../storage/shared_preferences_storage.dart';
+import '../storage/memory_storage.dart';
 import '../utils/logger.dart';
 import 'counter_storage.dart';
 
 /// Central coordinator that increments, caches, and broadcasts counter values.
 ///
 /// The service is a singleton accessed through [CounterTrackerService.instance].
-/// It owns a [CounterStorage] (defaulting to `SharedPreferencesCounterStorage`),
-/// keeps an in-memory cache for synchronous reads, and exposes per-id
-/// [ValueListenable]s plus a global [updates] stream so widgets can react to
-/// changes without external state-management packages.
+/// It owns a [CounterStorage] (defaulting to the plugin-free
+/// [MemoryCounterStorage]), keeps an in-memory cache for synchronous reads, and
+/// exposes per-id [ValueListenable]s plus a global [updates] stream so widgets
+/// can react to changes without external state-management packages.
 ///
-/// Call [configure] once during app start-up if you want a non-default storage
+/// Call [configure] once during app start-up if you want a persistent storage
 /// backend or logging enabled.
 class CounterTrackerService {
   CounterTrackerService._();
@@ -23,7 +23,7 @@ class CounterTrackerService {
   /// The shared singleton instance.
   static final CounterTrackerService instance = CounterTrackerService._();
 
-  CounterStorage _storage = SharedPreferencesCounterStorage();
+  CounterStorage _storage = MemoryCounterStorage();
   CounterLogger _logger = const CounterLogger();
   bool _initialized = false;
 

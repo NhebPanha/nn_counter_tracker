@@ -4,7 +4,8 @@ import 'package:nn_counter_tracker/nn_counter_tracker.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Enable logs and use the default SharedPreferences storage.
+  // Enable logs. Uses the default plugin-free in-memory storage, so this demo
+  // runs on every platform (including Windows) with no extra setup.
   CounterTrackerService.instance.configure(enableLogs: true);
   await CounterTrackerService.instance.init();
 

@@ -3,7 +3,7 @@ description: >-
   Lightweight, highly customizable analytics-style tracking for Flutter widgets:
   views, impressions, taps, clicks and user interactions. Works like a mini
   analytics SDK while staying simple and developer-friendly.
-version: 0.1.1
+version: 0.2.0
 homepage: https://github.com/NhebPanha/nn_counter_tracker
 repository: https://github.com/NhebPanha/nn_counter_tracker
 issue_tracker: https://github.com/NhebPanha/nn_counter_tracker/issues
@@ -15,18 +15,20 @@ topics:
   - visibility
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
-  flutter: ">=3.29.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
+# The core package is intentionally plugin-free (only the pure-Dart
+# visibility_detector) so it builds on every platform — including Windows
+# without Developer Mode. Add shared_preferences / hive in your own app if you
+# want persistence (see the README for ready-to-copy adapters).
 dependencies:
   flutter:
     sdk: flutter
-  hive: ^2.2.3
-  shared_preferences: ^2.3.2
   visibility_detector: ^0.4.0+2
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ">=3.0.0 <6.0.0"
   flutter_test:
     sdk: flutter
 

@@ -1,8 +1,17 @@
-import 'package:nn_counter_tracker/nn_counter_tracker.dart';
+import '../models/counter_data.dart';
+import '../services/counter_storage.dart';
 
-/// Simple in-memory [CounterStorage] used to make tests deterministic and
-/// independent of platform channels.
-class InMemoryCounterStorage implements CounterStorage {
+/// Pure-Dart, in-memory [CounterStorage] used as the zero-configuration default.
+///
+/// It has **no native plugin dependencies**, so it works on every platform
+/// (including Windows without Developer Mode) out of the box. Counters live only
+/// for the lifetime of the process — they are *not* persisted across restarts.
+///
+/// For durable storage, implement [CounterStorage] with a backend of your
+/// choice (e.g. `shared_preferences` or `hive`) and pass it to
+/// `CounterTrackerService.configure(storage: ...)`. See the README for
+/// ready-to-copy adapters.
+class MemoryCounterStorage implements CounterStorage {
   final Map<String, CounterData> _store = <String, CounterData>{};
 
   @override

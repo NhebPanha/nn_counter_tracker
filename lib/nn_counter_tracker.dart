@@ -28,8 +28,7 @@ export 'src/services/counter_storage.dart';
 export 'src/services/counter_tracker_service.dart';
 
 // Storage implementations
-export 'src/storage/hive_storage.dart';
-export 'src/storage/shared_preferences_storage.dart';
+export 'src/storage/memory_storage.dart';
 
 // Utils
 export 'src/utils/logger.dart';

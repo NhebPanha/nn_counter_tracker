@@ -1,14 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nn_counter_tracker/nn_counter_tracker.dart';
 
-import 'in_memory_storage.dart';
-
 void main() {
   late CounterTrackerService service;
 
   setUp(() async {
     service = CounterTrackerService.instance;
-    service.configure(storage: InMemoryCounterStorage(), enableLogs: false);
+    service.configure(storage: MemoryCounterStorage(), enableLogs: false);
     await service.clear();
   });
 
