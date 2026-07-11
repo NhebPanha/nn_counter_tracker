@@ -104,7 +104,6 @@ class CounterData {
       Object.hash(id, views, clicks, lastViewedAt, lastClickedAt);
 
   @override
-  String toString() =>
-      'CounterData(id: $id, views: $views, clicks: $clicks, '
+  String toString() => 'CounterData(id: $id, views: $views, clicks: $clicks, '
       'lastViewedAt: $lastViewedAt, lastClickedAt: $lastClickedAt)';
 }

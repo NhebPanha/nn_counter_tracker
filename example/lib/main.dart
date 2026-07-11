@@ -29,25 +29,23 @@ class ExampleApp extends StatelessWidget {
   }
 }
 
+/// The demo feed: a mix of products, promotions, coupons and banners.
+const List<_Item> _demoItems = <_Item>[
+  _Item('product_001', 'Wireless Headphones', r'$89.99', Icons.headphones),
+  _Item(
+      'promo_001', 'Summer Sale — 50% Off', 'Limited time', Icons.local_offer),
+  _Item('coupon_001', 'SAVE20 Coupon', '20% off any order',
+      Icons.confirmation_number),
+  _Item('product_002', 'Smart Watch', r'$199.00', Icons.watch),
+  _Item('banner_001', 'New Arrivals Banner', 'Explore now', Icons.campaign),
+];
+
 /// Home page with a tracked feed and an analytics dashboard.
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   /// Creates the home page.
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final List<_Item> _items = const <_Item>[
-    _Item('product_001', 'Wireless Headphones', r'$89.99', Icons.headphones),
-    _Item('promo_001', 'Summer Sale — 50% Off', 'Limited time', Icons.local_offer),
-    _Item('coupon_001', 'SAVE20 Coupon', '20% off any order', Icons.confirmation_number),
-    _Item('product_002', 'Smart Watch', r'$199.00', Icons.watch),
-    _Item('banner_001', 'New Arrivals Banner', 'Explore now', Icons.campaign),
-  ];
-
-  void _openDashboard() {
+  void _openDashboard(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const DashboardPage()),
     );
@@ -62,15 +60,15 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.analytics_outlined),
             tooltip: 'Analytics dashboard',
-            onPressed: _openDashboard,
+            onPressed: () => _openDashboard(context),
           ),
         ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(12),
-        itemCount: _items.length,
+        itemCount: _demoItems.length,
         itemBuilder: (context, index) {
-          final item = _items[index];
+          final item = _demoItems[index];
           return CounterTracker(
             id: item.id,
             trackView: true,
@@ -217,11 +215,7 @@ class _DashboardPageState extends State<DashboardPage> {
               return ListTile(
                 title: Text(c.id),
                 subtitle: Text('Views: ${c.views}   •   Clicks: ${c.clicks}'),
-                trailing: Text(
-                  c.clicks == 0
-                      ? '—'
-                      : '${(c.clicks / (c.views == 0 ? 1 : c.views) * 100).toStringAsFixed(0)}% CTR',
-                ),
+                trailing: Text(_formatCtr(c)),
               );
             },
           );
@@ -229,6 +223,14 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
+}
+
+/// Formats the click-through rate (clicks / views) for a counter, or `—` when
+/// there is nothing to report yet.
+String _formatCtr(CounterData data) {
+  if (data.clicks == 0 || data.views == 0) return '—';
+  final ratio = data.clicks / data.views * 100;
+  return '${ratio.toStringAsFixed(0)}% CTR';
 }
 
 class _Item {

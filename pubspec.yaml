@@ -3,10 +3,10 @@ description: >-
   Lightweight, highly customizable analytics-style tracking for Flutter widgets:
   views, impressions, taps, clicks and user interactions. Works like a mini
   analytics SDK while staying simple and developer-friendly.
-version: 0.1.0
-homepage: https://github.com/your_org/nn_counter_tracker
-repository: https://github.com/your_org/nn_counter_tracker
-issue_tracker: https://github.com/your_org/nn_counter_tracker/issues
+version: 0.1.1
+homepage: https://github.com/NhebPanha/nn_counter_tracker
+repository: https://github.com/NhebPanha/nn_counter_tracker
+issue_tracker: https://github.com/NhebPanha/nn_counter_tracker/issues
 topics:
   - analytics
   - tracking
