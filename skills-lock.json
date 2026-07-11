@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "dart-add-unit-test": {
+      "source": "dart-lang/skills",
+      "sourceType": "github",
+      "skillPath": "skills/dart-add-unit-test/SKILL.md",
+      "computedHash": "b4d913eb86f9a8539b5d07d453ce213c3b1557b028569eb980e1ae6707165da6"
+    },
+    "flutter-add-widget-preview": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-add-widget-preview/SKILL.md",
+      "computedHash": "369ed3ebdc1f81ee337551ad1d1dd9ec6e768ed2bdf65d32ad442117a6ba79b6"
+    }
+  }
+}

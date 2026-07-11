@@ -1,0 +1,33 @@
+name: nn_counter_tracker
+description: >-
+  Lightweight, highly customizable analytics-style tracking for Flutter widgets:
+  views, impressions, taps, clicks and user interactions. Works like a mini
+  analytics SDK while staying simple and developer-friendly.
+version: 0.1.0
+homepage: https://github.com/your_org/nn_counter_tracker
+repository: https://github.com/your_org/nn_counter_tracker
+issue_tracker: https://github.com/your_org/nn_counter_tracker/issues
+topics:
+  - analytics
+  - tracking
+  - counter
+  - impressions
+  - visibility
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.29.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hive: ^2.2.3
+  shared_preferences: ^2.3.2
+  visibility_detector: ^0.4.0+2
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
