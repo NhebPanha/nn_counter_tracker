@@ -3,6 +3,16 @@
 All notable changes to this project are documented here. This project adheres
 to [Semantic Versioning](https://semver.org).
 
+## 0.3.0
+
+### Added
+- Restructured, professional example app organized into `data/`, `widgets/`
+  and `pages/`, focused on product **view** and **click** tracking with a live
+  analytics dashboard (views, clicks, click-through rate).
+
+### Changed
+- Documentation and metadata polish for pub.dev publishing.
+
 ## 0.2.0
 
 ### Changed

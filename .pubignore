@@ -1,0 +1,7 @@
+# Files that should never ship in the published pub.dev archive.
+agent.md
+skills-lock.json
+.agents/
+.dart_tool/
+example/build/
+example/.dart_tool/
